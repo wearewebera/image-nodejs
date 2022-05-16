@@ -1,24 +1,22 @@
-FROM gcr.io/webera/base
+FROM "gcr.io/huntingmill/common/base:latest"
 
-ENV NODE_VERSION 18.0.0
-ENV YARN_VERSION 1.22.18
+ENV PATH "/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin"
+ENV NODE_VERSION 18.x
 
 RUN apt-get update \
-  && apt-get install -y curl \
+  && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    curl \
+    xz-utils \
+    openssl \
+    gnupg2 \
+    git \
+    nodejs \
+    npm \
+  && npm cache clean -f \
+  && npm install -g npm yarn \
+  && curl -sL https://deb.nodesource.com/setup_${NODE_VERSION} | bash - \
+  && apt update \
+  && apt-get install -y nodejs \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN curl -s https://deb.nodesource.com/setup_18.x | bash 
-    
-RUN apt-get update \
-    && apt-get install -y nodejs  \
-    && apt-get clean \
-    && apt-get remove -y curl \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && npm install --global yarn
-
-COPY docker-entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["docker-entrypoint.sh"]
-CMD [ "node" ]
