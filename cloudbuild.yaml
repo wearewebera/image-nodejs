@@ -1,6 +1,6 @@
 substitutions:
   _IMAGE_NAME: node
-  _REGISTRY_NAME: gcr.io/webera
+  _REGISTRY_NAME: gcr.io/huntingmill/common
 
 steps:
 - name: 'gcr.io/cloud-builders/docker'
