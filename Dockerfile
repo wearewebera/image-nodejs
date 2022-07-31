@@ -1,4 +1,4 @@
-FROM "gcr.io/huntingmill/common/base:latest"
+FROM webera/base
 
 ENV PATH "/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin"
 ENV NODE_VERSION 18.x
