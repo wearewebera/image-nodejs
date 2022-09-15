@@ -1,6 +1,7 @@
 # Webera Node.js Image
 
-Repository used to maintain container image with Node.js. To use this image:
+Repository used to maintain container image with Node.js 16.x. To use this
+image:
 
     docker run --rm -it webera/nodejs
 
