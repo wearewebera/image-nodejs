@@ -1,7 +1,7 @@
 FROM webera/base
 
 ENV PATH "/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin"
-ENV NODE_MAJOR 21
+ENV NODE_MAJOR 20
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \

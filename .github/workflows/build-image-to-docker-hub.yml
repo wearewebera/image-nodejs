@@ -59,4 +59,4 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         with:
           push: true
-          tags: webera/${{ steps.vars.outputs.repo }}:latest,webera/${{ steps.vars.outputs.repo }}:${{ steps.vars.outputs.tag }}
+          tags: webera/${{ steps.vars.outputs.repo }}:20,webera/${{ steps.vars.outputs.repo }}:${{ steps.vars.outputs.tag }}
