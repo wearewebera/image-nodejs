@@ -8,4 +8,4 @@ RUN apt update && \
     apt install curl -y && \
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
-RUN source /root/.bashrc && nvm install $NODE_VERSION
+RUN source /root/.bashrc && nvm install $NODE_VERSION 
